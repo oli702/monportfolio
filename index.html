@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chriskuni Olivier Brunel SAWADOGO | INGENIEUR DE TRAVAUX EN RESEAUX ET SYSTEMES DE TELECOMMUNICATIONS</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@200;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060a0f;
+    --bg2: #0b1220;
+    --panel: #0d1a2a;
+    --accent: #00e5ff;
+    --accent2: #00ff88;
+    --accent3: #ff6b35;
+    --text: #c8d8e8;
+    --text-dim: #556677;
+    --border: rgba(0,229,255,0.2);
+    --glow: 0 0 20px rgba(0,229,255,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Exo 2', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: 260px;
+    height: 100vh;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    animation: scanline 3s ease-in-out infinite;
+  }
+
+  @keyframes scanline {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .avatar-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    box-shadow: var(--glow);
+    background: linear-gradient(135deg, #0d2a40, #1a4060);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 32px;
+    color: var(--accent);
+    text-shadow: var(--glow);
+    position: relative;
+  }
+
+  .avatar::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,229,255,0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
+  .sidebar-name {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-name h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .sidebar-name p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    margin-top: 4px;
+    letter-spacing: 2px;
+  }
+
+  .sidebar-divider {
+    width: 60%;
+    height: 1px;
+    background: var(--border);
+    margin: 20px auto;
+  }
+
+  .nav-links { flex: 1; }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 30px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+    background: rgba(0,229,255,0.05);
+  }
+
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform 0.3s;
+  }
+
+  .nav-links a:hover::before { transform: scaleY(1); }
+
+  .nav-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .status-bar {
+    padding: 20px 30px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    margin-right: 8px;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    margin-left: 260px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -200px; top: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+    text-shadow: var(--glow);
+  }
+
+  .hero-subtitle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: var(--accent2);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+
+  .hero p {
+    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text);
+    font-weight: 200;
+    margin-bottom: 40px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0,229,255,0.5);
+  }
+
+  .btn-secondary {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--accent);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(0,229,255,0.1);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 60px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  .section-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { border-color: rgba(0,229,255,0.4); box-shadow: var(--glow); transform: translateY(-4px); }
+
+  .project-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .project-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0,229,255,0.1);
+    border: 1px solid rgba(0,229,255,0.3);
+    color: var(--accent);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .project-card h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .project-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 4px 10px;
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.2);
+    color: var(--accent2);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .skill-group h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-item {
+    margin-bottom: 16px;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .skill-name {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .skill-pct {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+  }
+
+  .skill-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    position: relative;
+    transition: width 1.5s ease;
+  }
+
+  .skill-fill::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.5));
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text);
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .info-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .info-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: var(--glow);
+    display: block;
+  }
+
+  .info-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .contact-item:hover {
+    border-color: var(--accent);
+    box-shadow: var(--glow);
+  }
+
+  .contact-icon {
+    font-size: 20px;
+    width: 44px; height: 44px;
+    background: rgba(0,229,255,0.1);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-item span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .contact-item small {
+    display: block;
+    color: var(--text-dim);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-group label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .form-group input, .form-group textarea {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 16px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: none;
+  }
+
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: var(--glow);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  footer span {
+    color: var(--accent);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .hero { padding: 40px 24px; }
+    section { padding: 60px 24px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 10px; text-align: center; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="avatar-wrap">
+    <div class="avatar">BS</div>
+  </div>
+  <div class="sidebar-name">
+    <h2>Brunel SAWADOGO</h2>
+    <p>// RÉSEAU & TÉLÉCOMS</p>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="nav-links">
+    <a href="#hero" class="active">
+      <span class="nav-icon">⌂</span> Accueil
+    </a>
+    <a href="#projets">
+      <span class="nav-icon">◈</span> Projets
+    </a>
+    <a href="#competences">
+      <span class="nav-icon">◎</span> Compétences
+    </a>
+    <a href="#about">
+      <span class="nav-icon">◉</span> À Propos
+    </a>
+    <a href="#contact">
+      <span class="nav-icon">◌</span> Contact
+    </a>
+  </div>
+  <div class="status-bar">
+    <span class="status-dot"></span> DISPONIBLE POUR EMPLOI<br>
+    <span style="color: var(--text-dim); margin-left: 14px; font-size:9px;">Ouagadougou, Burkina Faso</span>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div>
+      <div class="hero-tag">Institut Supérieur du Genie Electrique</div>
+      <h1>Brunel<br><span>SAWADOGO</span></h1>
+      <div class="hero-subtitle">> Ingenieur Réseau & Telecommunications_</div>
+      <p>Étudiant en fin de cycle spécialisé en réseaux informatiques et télécommunications. Passionné par la supervision réseau, la cybersécurité et les infrastructures IT. Prêt à relever de nouveaux défis professionnels.</p>
+      <div class="hero-btns">
+        <a href="#projets" class="btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn-secondary">Me contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">// 01. RÉALISATIONS</div>
+        <div class="section-title">Mes Projets</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-icon">📡</div>
+        <div class="project-badge">Supervision Réseau</div>
+        <h3>Système de Supervision avec Centreon</h3>
+        <p>Mise en place d'une solution complète de supervision réseau avec Centreon. Monitoring en temps réel des équipements réseau, serveurs et services. Configuration des alertes, tableaux de bord et rapports de disponibilité.</p>
+       <img src="C:\Users\brunel\Pictures\centreon\Capture d’écran 2025-04-16 200514.png" alt="Centreon Dashboard" style="width:100%; border-radius:8px; margin-top:16px; border:1px solid var(--border);">
+        <div class="project-tags">
+          <span class="tag">Centreon</span>
+          <span class="tag">SNMP</span>
+          <span class="tag">Nagios</span>
+          <span class="tag">Linux</span>
+          <span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🛡️</div>
+        <div class="project-badge">Cybersécurité</div>
+        <h3>Mise en place d'une SIEM</h3>
+        <p>Déploiement d'un système de gestion des informations et événements de sécurité (SIEM). Collecte et corrélation des logs, détection des menaces en temps réel, analyse des incidents de sécurité et génération de rapports.</p>
+        <div class="project-tags">
+          <span class="tag">SIEM</span>
+          <span class="tag">Log Management</span>
+          <span class="tag">Sécurité</span>
+          <span class="tag">Analyse</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🌐</div>
+        <div class="project-badge">Infrastructure</div>
+        <h3>Administration Réseau</h3>
+        <p>Configuration et administration d'infrastructures réseau : routeurs, switches, pare-feu. Mise en place de VLANs, protocoles de routage et politiques de sécurité réseau.</p>
+        <div class="project-tags">
+          <span class="tag">Cisco</span>
+          <span class="tag">VLAN</span>
+          <span class="tag">OSPF</span>
+          <span class="tag">Firewall</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🛒</div>
+        <div class="project-badge">Développement Web</div>
+        <h3>BStore — Boutique en Ligne</h3>
+        <p>Conception et déploiement d'un site e-commerce complet hébergé sur Netlify. Interface moderne pour la vente en ligne avec gestion des produits et expérience utilisateur optimisée.</p>
+        <div class="project-tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Netlify</span>
+          <span class="tag">E-commerce</span>
+        </div>
+        <a href="https://bstore2026.netlify.app" target="_blank" style="display:inline-block; margin-top:16px; font-family:'Share Tech Mono',monospace; font-size:11px; color:var(--accent); text-decoration:none; border-bottom: 1px solid var(--accent); padding-bottom:2px; transition:opacity 0.3s;">
+          → Voir le site en ligne
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">📱</div>
+        <div class="project-badge">Développement Mobile</div>
+        <h3>Agri-Market — Application Mobile</h3>
+        <p>Développement d'une application mobile Android et iOS dénommée Agri-Market. Plateforme dédiée au secteur agricole facilitant la mise en relation entre producteurs et acheteurs.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Android</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Dart</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🅿️</div>
+        <div class="project-badge">Electronique & IoT</div>
+        <h3>Parking Automatique avec Arduino</h3>
+        <p>Conception et réalisation d'un système de parking automatique basé sur Arduino. Détection de places disponibles, gestion des barrières et affichage en temps réel du nombre de places libres.</p>
+        <div class="project-tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">Capteurs</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Electronique</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="competences">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">// 02. EXPERTISE</div>
+        <div class="section-title">Compétences</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <h3>🔧 Réseau</h3>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Cisco (Routing/Switching)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">TCP/IP & Protocoles</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">VLAN / VPN</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Firewall & Sécurité</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>📊 Supervision & Sécurité</h3>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Centreon / Nagios</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">SIEM</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">SNMP / Syslog</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Analyse des logs</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>💻 Systèmes</h3>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Linux (Administration)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Windows Server</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Virtualisation</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Scripting Bash</span><span class="skill-pct">65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>📡 Télécoms</h3>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Réseaux mobiles (2G/3G/4G)</span><span class="skill-pct">72%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Fibre optique</span><span class="skill-pct">68%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">VoIP</span><span class="skill-pct">65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">// 03. PROFIL</div>
+        <div class="section-title">À Propos</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Je suis <strong style="color:#fff">Brunel SAWADOGO</strong> (nom complet : Sawadogo Chriskuni Olivier Brunel), né le 20 juillet 2005 à Ouagadougou, Burkina Faso. Étudiant en fin de cycle à l'Institut Supérieur du Génie Électrique (ISGE-BF), spécialisé en Réseaux Informatiques et Télécommunications.</p>
+        <p>J'ai travaillé sur des projets concrets : <strong style="color:var(--accent)">système de supervision avec Centreon</strong>, déploiement d'une <strong style="color:var(--accent)">solution SIEM</strong>, développement d'une <strong style="color:var(--accent)">application mobile Agri-Market</strong>, <strong style="color:var(--accent)">parking automatique avec Arduino</strong>, et d'une boutique en ligne <strong style="color:var(--accent)">BStore</strong>.</p>
+        <p>J'ai également participé à l'<strong style="color:var(--accent2)">Hackathon technologique de l'ISGE-BF</strong> (mai 2024), à la première édition de <strong style="color:var(--accent2)">VENEEM</strong>, et suivi une formation Flutter pour le développement d'applications Android et iOS.</p>
+        <p>Passionné par la sécurité informatique, la supervision réseau et l'innovation technologique. Je parle français, anglais, mooré et allemand.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-value">6+</span>
+          <span class="info-label">Projets Réalisés</span>
+        </div>
+        <div class="info-item">
+          <span class="info-value">4</span>
+          <span class="info-label">Langues Parlées</span>
+        </div>
+        <div class="info-item">
+          <span class="info-value">ISGE</span>
+          <span class="info-label">Institut BF</span>
+        </div>
+        <div class="info-item">
+          <span class="info-value">2026</span>
+          <span class="info-label">Diplôme en cours</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">// 04. CONTACT</div>
+        <div class="section-title">Me Contacter</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <span>Ouagadougou, Burkina Faso</span>
+            <small>LOCALISATION</small>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🎓</div>
+          <div>
+            <span>Institut Supérieur du Génie Électrique</span>
+            <small>ÉTABLISSEMENT</small>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <span>brunelsawadogo90@gmail.com</span>
+            <small>EMAIL</small>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <span>56-57-31-15 / 70-89-58-71</span>
+            <small>TÉLÉPHONE</small>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <span>Ouvert aux opportunités</span>
+            <small>STATUT PROFESSIONNEL</small>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Nom complet</label>
+          <input type="text" placeholder="Votre nom...">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Votre message..."></textarea>
+        </div>
+        <button class="btn-primary" style="align-self:flex-start">Envoyer le message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUES & INTÉRÊTS -->
+  <section id="langues">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">// 05. DIVERS</div>
+        <div class="section-title">Langues & Intérêts</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <div>
+        <h3 style="font-family:'Rajdhani',sans-serif; font-size:14px; letter-spacing:3px; color:var(--accent); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border);">🌍 LANGUES</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="contact-item"><div class="contact-icon">🇫🇷</div><div><span>Français</span><small>COURANT</small></div></div>
+          <div class="contact-item"><div class="contact-icon">🇬🇧</div><div><span>Anglais</span><small>INTERMÉDIAIRE</small></div></div>
+          <div class="contact-item"><div class="contact-icon">🇧🇫</div><div><span>Mooré</span><small>LANGUE MATERNELLE</small></div></div>
+          <div class="contact-item"><div class="contact-icon">🇩🇪</div><div><span>Allemand</span><small>NOTIONS</small></div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Rajdhani',sans-serif; font-size:14px; letter-spacing:3px; color:var(--accent); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border);">⚡ CENTRES D'INTÉRÊT</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="contact-item"><div class="contact-icon">⚽</div><div><span>Sport</span><small>LOISIR</small></div></div>
+          <div class="contact-item"><div class="contact-icon">📚</div><div><span>Lecture</span><small>DÉVELOPPEMENT PERSONNEL</small></div></div>
+          <div class="contact-item"><div class="contact-icon">💻</div><div><span>Projets Informatiques</span><small>PASSION</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <span>Brunel SAWADOGO</span> — Tous droits réservés</p>
+    <p>Réseaux Informatiques & Télécommunications <span>// ISGE</span></p>
+  </footer>
+
+</div>
+
+<script>
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id], .hero[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // Animate skill bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.style.width;
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.skills-grid').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
